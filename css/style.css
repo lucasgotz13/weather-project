@@ -2,6 +2,21 @@
 
 body {
     font-family: 'Open Sans', sans-serif;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.weather-input {
+    margin-top: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+}
+
+.weather-input > label {
+    font-size: 16pt;
 }
 
 .weather {
@@ -16,5 +31,21 @@ body {
 
 .min-main-div {
     display: flex;
-    gap: 5px;
+    gap: 10px;
+}
+
+input[type='text'] {
+    width: 300px;
+    height: 25px;
+    font-size: 14pt;
+}
+
+#send-button {
+    background-color: white;
+    border: none;
+    outline: none;
+    border-radius: 10%;
+    cursor: pointer;
+    width: 32px;
+    height: 32px;
 }
