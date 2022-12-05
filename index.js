@@ -2,6 +2,9 @@ const cityInput = document.getElementById("city-input");
 const weatherDiv = document.querySelector(".weather");
 const sendButton = document.getElementById("send-button");
 const main = document.querySelector('body')
+
+main.style.backgroundImage = 'url(./assets/default_wallpaper.jpg)'
+
 cityInput.addEventListener("keypress", (e) => {
   if (e.keyCode == 13) {
     const city = cityInput.value;
@@ -36,18 +39,29 @@ function getWeatherImage(data) {
   switch (data.weather[0].main) {
     case "Clear":
       weatherImage.src = "./assets/sunny.png";
+      main.style.backgroundImage = 'url(./assets/clear_wallpaper.jpg)'
       break;
     case "Clouds":
+      if (data.weather[0].description == "overcast clouds") {
+        main.style.backgroundImage = 'url(./assets/overcast.jpg)'
+        weatherImage.src = './assets/cloudy.png'
+        break;
+      }
+      console.log(data.weather[0].description)
       weatherImage.src = "./assets/partly_cloudy.png";
+      main.style.backgroundImage = 'url(./assets/partly_cloudy_wallpaper.jpg)'
       break;
     case "Rain":
       weatherImage.src = "./assets/rain.png";
+      main.style.backgroundImage = 'url(./assets/rain_wallpaper.jpg)'
       break;
     case "thunderstorm":
       weatherImage.src = "./assets/thunderstorm.png";
+      main.style.backgroundImage = 'url(./assets/thunderstorm_wallpaper.jpg)'
       break;
     case "Snow":
       weatherImage.src = "./assets/snow.png";
+      main.style.backgroundImage = 'url(./assets/snow_wallpaper.jpg)'
   }
   // store weather condition into a variable to use later in the getGiphyImage function
   const giphyImage = data.weather[0].main
@@ -93,4 +107,3 @@ async function setBackgroundImage() {
   main.style.backgroundImage = `url(${image})`  
 }
 
-setBackgroundImage();
