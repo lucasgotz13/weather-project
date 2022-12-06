@@ -5,16 +5,19 @@ const main = document.querySelector('body')
 
 main.style.backgroundImage = 'url(./assets/default_wallpaper.jpg)'
 
+let city = "Buenos Aires"
+getWeather(city)
+
 cityInput.addEventListener("keypress", (e) => {
   if (e.keyCode == 13) {
-    const city = cityInput.value;
+    city = cityInput.value;
     getWeather(city);
     return city;
   }
 });
 
 sendButton.addEventListener("click", () => {
-  const city = cityInput.value;
+  city = cityInput.value;
   getWeather(city);
   return city;
 });
